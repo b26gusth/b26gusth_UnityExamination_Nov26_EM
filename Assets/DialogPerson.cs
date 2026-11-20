@@ -75,18 +75,21 @@ public class DialogueNPC : MonoBehaviour
 
     private void ShowLine()
     {
+        if (dialogueText == null) return;
         dialogueText.gameObject.SetActive(true);
         dialogueText.text = $"<b>{npcName}:</b> {currentLines[lineIndex]}";
     }
 
     private void ShowPrompt()
     {
+        if (dialogueText == null) return;
         dialogueText.gameObject.SetActive(true);
         dialogueText.text = $"Tryck E för att prata med {npcName}";
     }
 
     private void Hide()
     {
+        if (dialogueText == null) return;   // texten kan redan vara förstörd vid scenbyte/stopp
         dialogueText.gameObject.SetActive(false);
     }
 

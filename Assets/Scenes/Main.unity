@@ -1309,6 +1309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   npc: {fileID: 1157282946}
+  particles: {fileID: 9065409837281094147, guid: 4ad268e869834464a9a18d53bff9a9cd, type: 3}
 --- !u!212 &1450715930
 SpriteRenderer:
   serializedVersion: 2
