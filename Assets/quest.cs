@@ -1,15 +1,20 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class QuestTrigger : MonoBehaviour
 {
     [SerializeField] private DialogueNPC npc;
 
-    [SerializeField] private ParticleSystem particles;
+    // Körs när spelaren plockar upp föremålet.
+    // Koppla t.ex. PrefabSpawner.Spawn hit i Inspector.
+    [SerializeField] private UnityEvent onPickedUp;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
-        Instantiate(particles, other.transform.position, Quaternion.identity, other.transform);
+
         npc.CompleteQuest();
-        gameObject.SetActive(false);   // t.ex. ett föremål som "plockas upp"
+        onPickedUp.Invoke();
+        gameObject.SetActive(false);   // föremålet "plockas upp"
     }
 }
